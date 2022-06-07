@@ -1,0 +1,648 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+            void menu();
+            void administrator();
+            void stock();
+            void add();
+            void alldisp();
+            void rem();
+            void login();
+
+            void production();
+            void stockmeat();
+            void addmeat();
+            void remmeat();
+            void alldispmeat();
+
+
+
+void menu()
+{
+    m:
+    int choice;
+    string email;
+    string password;
+    string email1;
+    string password1;
+
+
+    cout<<"--------------------------------------___________________________________________--------------------------------------\n";
+    cout<<"**************************************                                           **************************************\n";
+    cout<<"**************************************        LONGGANISA INVENTORY SYSTEM        **************************************\n";
+    cout<<"**************************************                                           **************************************\n";
+    cout<<"**************************************___________________________________________**************************************\n";
+    cout<<"\t\t\t\t                                                 \n";
+    cout<<"\t\t\t\t      |   [1] CREATE ACCOUNT                     |\n";
+    cout<<"\t\t\t\t      |                                          |\n";
+    cout<<"\t\t\t\t      |   [2] LOGIN                              |\n";
+    cout<<"\t\t\t\t      |                                          |\n";
+    cout<<"\t\t\t\t      |   [3] EXIT                               |\n";
+    cout<<"\t\t\t\t      |                                          |\n";
+    cout<<"\t\t\t\t                                                 \n";
+    cout<<"\t\t\t\t       PLEASE ENTER A NUMBER : ";
+    cin>>choice;
+
+
+    switch(choice)
+    {
+    case 1:
+        cout<<"\n\t\t\t\t\t\t     CREATE ACCOUNT  \n";
+        cout<<"\n\t\t\t\t       ENTER EMAIL : ";
+        cin>>email;
+        cout<<"\t\t\t\t       PASSWORD : ";
+        cin>>password;
+
+        ofstream write("login.txt",ios::app);
+
+    if(write){
+        ifstream read("login.txt",ios::app);
+        write<<" "<<email<<"   "<<password<<"\n";
+        write.close();
+    }else{
+            cout<<"\n\n\t\t\t\t       ------------INVALID INPUT !------------";
+    }
+
+
+        cout<<"\n\t\t\t\t\t\t     PLEASE LOGIN  \n";
+        cout<<"\n\t\t\t\t       ENTER EMAIL : ";
+        cin>>email1;
+        cout<<"\t\t\t\t       PASSWORD : ";
+        cin>>password1;
+
+         system("cls");
+        ifstream read("login.txt",ios::app);
+        write<<" "<<email<<"   "<<password<<"\n";
+        write.close();
+
+        if(email==email1&&password==password1)
+        {
+            administrator();
+
+        }
+        else
+        {
+            cout<<"INVALID EMAIL/PASSWORD\n";
+        }
+        break;
+        }
+
+    switch(choice)
+    case 2:
+        {
+            login();
+            break;
+        }
+    switch(choice)
+    case 3:
+        {
+            exit(0);
+
+        }
+    switch(choice)
+    default:
+        {
+            cout<<"\t\t\t\t\t\t\n                                                    INVALID INPUT !\n";
+        }
+
+
+goto m;
+
+}
+
+void login()
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+void administrator()
+{
+
+    m:
+    int choice;
+    cout<<"\n\n\n\t\t\t\t\t           ADMINISTRATOR MENU";
+    cout<<"\n\t\t\t\t      |   [1] STOCKS                            |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [2] ADD STOCKS                        |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [3] DELETE STOCKS                     |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [4] ALL STOCK                         |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [5] PRODUCTION                        |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [6] EXIT                              |";
+    cout<<"\n\t\t\t\t                                                 ";
+    cout<<"\t\t\t\t\t\t\t                PLEASE ENTER A NUMBER : ";
+    cin>>choice;
+
+  /*  if(choice==5){
+        system("pause");
+        system("cls");
+
+    }*/
+
+   switch(choice)
+    {
+        case 1:
+            stock();
+           break;
+        case 2:
+            add();
+            break;
+        case 3:
+            rem();
+            break;
+        case 4:
+            alldisp();
+            break;
+        case 5:
+            production();
+            break;
+        case 6:
+            exit(0);
+            break;
+        default :
+            cout<<"\t\t\t\t\t\t\n                                                    INVALID INPUT !\n";
+    }
+     system("pause");
+     system("cls");
+    goto m;
+}
+
+void stock()
+{
+
+    int stock,input;
+    int newstock;
+
+
+    ifstream read("database.txt",ios::in);
+    ofstream write("database1.txt");
+
+    cout<<"\n\t\t\t\t\t\t   ADD STOCKS        ";
+    cout<<"\n\t\t\t\t\tNUMBER OF STOCKS  : ";
+    cin>>input;
+    system("cls");
+    while (!read.eof()){
+    read >> stock;
+
+
+     if (stock) {
+
+        write << "\n" <<  input;
+
+    } else {
+        write << "\n" << stock;
+    }
+    }
+
+     read.close();
+     write.close();
+
+
+     ifstream read2("database1.txt",ios::in);
+     ofstream write2("database.txt");
+
+      while (!read2.eof()){
+            read2  >> stock ;
+            write2 << "\n" << stock ;
+      }
+
+    read2.close();
+    write2.close();
+
+    cout<<"\n\n\t\t\t\t       ------------RECORD INSERTED !------------\n";
+    cout<<"\t\t\t\t      ___________________________________________\n";
+    cout<<"\t\t\t\t\t\t\t STOCKS\n\n";
+
+
+
+    cout<<"\t\t\t\t\t\t\t--"<<input<<"--\n";
+
+    if(input<500){
+        cout<<"\n\n\t\t\t\t       -----------STOCKS IS BELOW 500 !-----------\n";
+
+    }
+  //  main();
+
+}
+
+void add()
+{
+
+
+    int stock,input;
+    int newstock;
+
+
+    ifstream read("database.txt",ios::in);
+    ofstream write("database1.txt");
+
+
+    cout << "Enter new stocks:";
+    cin >> input;
+
+
+    while (!read.eof()){
+    read >> stock;
+
+
+    system("cls");
+    if (stock) {
+        newstock = stock + input;
+        write << "\n" <<  newstock;
+
+    } else {
+        write << "\n" << stock;
+    }
+    }
+
+     read.close();
+     write.close();
+
+
+     ifstream read2("database1.txt",ios::in);
+     ofstream write2("database.txt");
+
+      while (!read2.eof()){
+            read2  >> stock ;
+            write2 << "\n" << stock ;
+      }
+
+    read2.close();
+    write2.close();
+
+    cout<<"\n\n\t\t\t\t       ------------RECORD INSERTED !------------\n";
+    cout<<"\t\t\t\t      ___________________________________________\n";
+    cout<<"\t\t\t\t\t\t\t STOCKS\n\n";
+
+
+
+    cout<<"\t\t\t\t\t\t\t--"<<newstock<<"--\n";
+
+    if(newstock<500){
+       cout<<"\n\n\t\t\t\t       -----------STOCKS IS BELOW 500 !-----------\n";
+
+    }
+
+
+}
+
+void alldisp()
+{
+
+    int  newstock, input;
+
+     ifstream read("database.txt");
+
+     //string item;
+     //system ("CLS");
+     cout << "Entire database: "<< endl;
+     //cout << "Recno" << ' ' << "FName" << ' ' << "Lname"  << ' ' << "Age" << endl;
+     //cout << "---------------" << endl;
+
+
+
+    read>>newstock;
+    cout<<endl;
+    cout <<newstock<<endl;
+
+
+
+
+}
+
+void rem()
+{
+
+     int  newstock,input;
+
+    ifstream read("database.txt");
+    ofstream write("database1.txt");
+
+
+    cout<<"\n\n\n\t\t\t\t\t           DELETE STOCKS";
+    cout<<"\n\t\t\t\t      |   [1] YES                             |";
+    cout<<"\n\t\t\t\t      |                                       |";
+    cout<<"\n\t\t\t\t      |   [2] NO                              |";
+    cin >> input;
+
+    if(input==1){
+
+
+        while(read >> newstock){
+
+                 write << "\n" <<"0";
+            }
+
+    }else {
+        cout <<"INVALID INPUT" <<endl;
+    }
+
+     read.close();
+     write.close();
+
+
+     ifstream read2("database1.txt",ios::in);
+     ofstream write2("database.txt");
+
+      while (!read2.eof()){
+            read2 >> newstock;
+            write2 << "\n" <<"0";
+      }
+
+       read2.close();
+       write2.close();
+
+
+
+}
+
+void production()
+{
+
+    m:
+    int choice;
+    cout<<"\n\n\n\t\t\t\t\t            PRODUCTION MENU";
+    cout<<"\n\t\t\t\t      |   [1] MEAT STOCKS                       |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [2] ADD MEATS                         |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [3] DELETE STOCKS                     |";
+    cout<<"\n\t\t\t\t      |                                         |";
+    cout<<"\n\t\t\t\t      |   [4] ALL STOCK                         |";
+    cout<<"\n\t\t\t\t                                                 ";
+    cout<<"\t\t\t\t\t\t\t                PLEASE ENTER A NUMBER : ";
+    cin>>choice;
+
+    switch(choice)
+    {
+        case 1:
+            stockmeat();
+           break;
+        case 2:
+            addmeat();
+            break;
+       case 3:
+            remmeat();
+            break;
+         case 4:
+            alldispmeat();
+            break;
+        default :
+            cout<<"\t\t\t\t\t\t\n                                                    INVALID INPUT !\n";
+    }
+     system("pause");
+     system("cls");
+
+    goto m;
+}
+
+void stockmeat()
+{
+
+    int stock,input;
+    int newstock;
+
+
+    ifstream read("meat.txt",ios::in);
+    ofstream write("meat1.txt");
+
+    cout<<"\n\t\t\t\t\t\t   ADD STOCKS        ";
+    cout<<"\n\t\t\t\t\tNUMBER OF STOCKS  : ";
+    cin>>input;
+
+    system("cls");
+    while (!read.eof()){
+    read >> stock;
+
+
+     if (stock) {
+
+        write << "\n" <<  input;
+
+    } else {
+        write << "\n" << stock;
+    }
+}
+
+    read.close();
+    write.close();
+
+
+    ifstream read2("meat1.txt",ios::in);
+    ofstream write2("meat.txt");
+
+    while (!read2.eof()){
+            read2  >> stock ;
+            write2 << "\n" << stock ;
+      }
+
+    read2.close();
+    write2.close();
+
+    cout<<"\n\n\t\t\t\t       ------------RECORD INSERTED !------------\n";
+    cout<<"\t\t\t\t      ___________________________________________\n";
+    cout<<"\t\t\t\t\t\t\t STOCKS\n\n";
+
+
+
+    cout<<"\t\t\t\t\t\t\t--"<<input<<"--\n";
+
+    if(input<500){
+       cout<<"\n\n\t\t\t\t       -----------STOCKS IS BELOW 500 !-----------\n";
+
+    }
+  //  main();
+
+}
+
+void addmeat()
+{
+
+
+    int stock,input;
+    int newstock;
+
+
+    ifstream read("meat.txt",ios::in);
+    ofstream write("meat1.txt");
+
+
+    cout << "Enter new stocks:";
+    cin >> input;
+
+
+    while (!read.eof()){
+    read >> stock;
+
+
+    system("cls");
+    if (stock) {
+            newstock = stock + input;
+        write << "\n" <<  newstock;
+
+    } else {
+        write << "\n" << stock;
+    }
+    }
+
+     read.close();
+     write.close();
+
+
+    ifstream read2("meat1.txt",ios::in);
+    ofstream write2("meat.txt");
+
+    while (!read2.eof()){
+            read2  >> stock ;
+            write2 << "\n" << stock ;
+      }
+
+    read2.close();
+    write2.close();
+
+    cout<<"\n\n\t\t\t\t       ------------RECORD INSERTED !------------\n";
+    cout<<"\t\t\t\t      ___________________________________________\n";
+    cout<<"\t\t\t\t\t\t\t STOCKS\n\n";
+
+
+
+    cout<<"\t\t\t\t\t\t\t--"<<newstock<<"--\n";
+
+    if(newstock<500){
+       cout<<"\n\n\t\t\t\t       -----------STOCKS IS BELOW 500 !-----------\n";
+
+    }
+  //  main();
+
+}
+
+void alldispmeat()
+{
+
+    int  newstock, input;
+
+     ifstream read("meat.txt");
+
+     //string item;
+     //system ("CLS");
+     cout << "Entire database: "<< endl;
+     //cout << "Recno" << ' ' << "FName" << ' ' << "Lname"  << ' ' << "Age" << endl;
+     //cout << "---------------" << endl;
+
+
+
+    read>>newstock;
+    cout<<endl;
+    cout <<newstock<<endl;
+
+
+
+
+}
+
+void remmeat()
+{
+
+    int  newstock,input;
+
+    ifstream read("meat.txt");
+    ofstream write("meat1.txt");
+
+
+    cout<<"\n\n\n\t\t\t\t\t           DELETE STOCKS";
+    cout<<"\n\t\t\t\t      |   [1] YES                             |";
+    cout<<"\n\t\t\t\t      |                                       |";
+    cout<<"\n\t\t\t\t      |   [2] NO                              |";
+    cin >> input;
+
+    if(input==1){
+
+
+        while(read >> newstock){
+
+                 write << "\n" <<"0";
+            }
+
+    }else {
+        cout <<"INVALID INPUT" <<endl;
+    }
+
+    read.close();
+    write.close();
+
+
+    ifstream read2("meat1.txt",ios::in);
+    ofstream write2("meat.txt");
+
+    while (!read2.eof()){
+            read2 >> newstock;
+            write2 << "\n" <<"0";
+      }
+
+       read2.close();
+       write2.close();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{
+
+menu();
+
+}
+

@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content-container hr, .contain hr {
+    background-color: black;
+    height: 3px;
+}
+
+.pic > img {
+    width: 400px;
+    height: 300px;
+    z-index: -1;
+}
+
+.nav {
+    z-index: 5;
+    display: inline-flex;
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+    
+    font-size: 1.5rem;
+    box-shadow: 1px 1px 5px rgb(55, 55, 55);
+    background-image: linear-gradient(45deg,black 96px,white 96px, white 75%, black 75%);
+}
+
+.nav a {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
+
+.nav .main {
+    margin: 2px 1000px 2px 10px;
+    color: rgba(225,255,255, 1);
+}
+
+.nav .contact, .nav .about {
+    cursor: pointer;
+    color: black;
+    margin: 2px 30px 2px 10px;
+}
+
+
+.front {
+    font-size: 2.3vw;
+
+    margin: 100px 50px 0px 38px;
+}
+
+.content {
+    text-align: justify;
+    font-size: 1.8vw;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+
+    padding: 0px 100px 0px 100px;
+}
+
+.cont {
+    color: black;
+    width: 700px;
+    height: 300px;
+    padding: 20px 10px 20px 10px;
+}
+
+.contain {
+    margin: 100px;
+    width: 80vw;
+    padding: 50px 50px;
+}
+
+.footer {
+    padding: 10px;
+    width: 100vw;
+
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.footer .socials ul a,
+.footer .developers ul a {
+    text-decoration: none;  
+    color: white;
+}
+
+.footer hr {
+    height: 1px;
+    background-color: black; 
+}
+
+.true, .det1, .det2, .det3, .det4 {
+    display: flex;
+}
+
+.true, .det1, .det2, .det3, .det4, .conclusion {
+    padding: 0 20px 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.p1, .p2, .p3, .p4, .p5, .p6, .p7 {
+    display: flex;
+    position: absolute;
+    height: 310px;
+    opacity: 1;
+}
+
+.p1 {
+    top: 710px;
+}
+.p2 {
+    top: 1080px;
+}
+.p3 {
+    top: 1440px;
+}
+.p4 {
+    top: 1810px;
+}
+.p5 {
+    top: 2175PX;
+}
+.p6 {
+    top: 2610px;
+}
+.p7 {
+    top: 2975px;
+}
+
+.pic {
+    overflow: hidden;
+    opacity: 0;
+
+    margin: 5px 0 5px 0;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.hover {
+    border-left: 5px solid black;
+    height: 310px;
+    width: 0;
+    background-image: linear-gradient(to right, rgba(65, 65, 65, .4), rgba(225,255,255, .4));
+
+    opacity: 0;
+}
+
+.w1, .w2, .w3, .w4, .w5, .w6, .w7 {
+    height: 300px;
+    display: block;
+}
+
+.w1:hover .p1 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w1:hover .p1 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+.w2:hover .p2 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w2:hover .p2 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+.w3:hover .p3 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w3:hover .p3 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+.w4:hover .p4 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w4:hover .p4 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+.w5:hover .p5 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w5:hover .p5 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+.w6:hover .p6 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w6:hover .p6 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+.w7:hover .p7 > .hover{
+    animation: hover .2s linear forwards;
+}
+.w7:hover .p7 > .pic {
+    animation: fade .2s linear forwards;
+}
+
+@keyframes hover {
+    0%{width: 0; opacity: 0;}
+    20%{width: 150px; opacity: 0.2;}
+    40%{width: 300px; opacity: 0.4;}
+    60%{width: 450px; opacity: 0.6;}
+    80%{width: 600px; opacity: 0.8;}
+    100%{width: 750px; opacity: 1;}
+}
+
+@keyframes fade {
+    0%{opacity: 0;}
+    20%{opacity: .2;}
+    40%{opacity: .4;}
+    60%{opacity: .6;}
+    80%{opacity: .8;}
+    100%{opacity: 1;}
+}
+
+.pop li {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    filter: invert(100%);
+    mix-blend-mode: difference;
+}
+
+.nav:hover .pop{
+    animation: drop .1s linear forwards;
+}
+
+.pop{
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    top: -225px;
+    width: 100vw;
+
+    padding: 10px 10px 10px 20px;
+    background-image: linear-gradient(45deg, black 253px, white 253px, white 899px, black 900px);
+    box-shadow: 1px 1px 5px rgb(55, 55, 55);
+}
+
+@keyframes drop {
+    0%{top: -100; opacity: 0;}
+    20%{top: -75px; opacity: 0.2;}
+    40%{top: -50px; opacity: 0.4;}
+    60%{top: -25px; opacity: 0.6;}
+    80%{top: 0px; opacity: 0.8;}
+    100%{top: 32px; opacity: 1;}
+}
