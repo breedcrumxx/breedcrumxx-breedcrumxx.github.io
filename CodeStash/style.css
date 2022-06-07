@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    background-color: gray;
+}
+
+.nav {
+    background-color: black;
+    color: white;
+    font-size: 2vw;
+    display: flex;
+}
+
+.nav > p {
+    margin: .2vw .6vw;
+}
+
+.nav .home {
+    margin-right: 79%;
+    cursor: pointer;
+}
+
+.content {
+    width: 80%;
+    background-color: white;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content > table {
+    //background-color: blue;
+    overflow: show;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-spacing: 2vw;
+}
+
+.data {
+    border: 2px solid red;
+    font-size: 2vw;
+    border-radius: 10px;
+    position: relative;
+
+    width: 15vw;
+    height: 15vw;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    font-size: 1.5vw;
+
+    text-align: center;
+}
+
+/*ANIMATION*/
+.one:hover, .two:hover, .three:hover, .four:hover {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    font-size: 3vw;
+    padding: 10px;
+    margin: -10px;
+    border: 3px solid red;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+}  
