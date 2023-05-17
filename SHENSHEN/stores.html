@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavina</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/b84a5fb576.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .slide {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .slide1 {
+            padding: 15% 0 0 0;
+        }
+
+        .slide1 article {
+            width: 80vw;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .slide1 article h1 {
+            font-size: 40px;
+        }
+
+        .slide1 article p {
+            font-size: 24px;
+        }
+
+        .slide h2 {
+            margin-top: 15%;
+            text-align: center;
+        }
+
+        .special {
+            font-family: 'Great Vibes', cursive;
+            font-size: 45px;
+        }
+
+        .component {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .component1 {
+            top: 75%; 
+            left: 139px;
+        }
+
+        .component2 {
+            position: absolute;
+            left: 139px;
+            transform: rotate(180deg);
+        }
+
+        .head {
+            width: 25px;
+            height: 25px;
+        }
+
+        .slide2, .slide3, .slide4 {
+            display: flex;
+        }
+
+        .slide2 article, .slide3 article, .slide4 article {
+            width: 30%;
+        }
+
+        .lined{
+            height: 100vh;
+            width: 3px;
+            background-color: black;
+            margin-left: 11%;
+        }
+
+        .slide-content {
+            display: flex;
+            align-items: center;
+            margin-left: 25px;
+        }
+
+        .bullet {
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
+        }
+
+        .slide5 {
+            position: relative;
+        }
+
+        .slide5 article {
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide5 article h1 {
+            font-size: 45px;
+        }
+        .slide5 article p {
+            font-size: 24px;
+            width: 60vw;
+        }
+
+        .shops {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            margin-top: 50px;
+        }
+
+        .shop {
+            width: 300px;
+            height: 230px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .shops .shop:last-child img {
+            width: 250px;
+            height: 115px;
+        }
+
+        .shop article {
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .shop article p:first-child {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .shop article p:nth-child(2) {
+            font-size: 16px;
+            color: #737373;
+        }
+
+        .shop article button {
+            margin-top: 20px;
+            width: 50%;
+            height: 40px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .shop > * {
+            /* border: 1px solid red; */
+        }
+
+        .lazada {
+            background-color: #000083;
+        }
+
+        .shopee {
+            background-color: #F1582C;
+        }
+
+        @media only screen and (max-width: 600px){
+            .slide1 {
+                padding: 30% 0 0 0;
+                height: 90vh;
+            }
+
+            .slide1 article p {
+                font-size: 18px;
+            }
+
+            .component1 {
+                display: none;
+            }
+
+            .component2 {
+                display: none;
+            }
+
+            .slide2, .slide3, .slide4 {
+                max-height: calc(100vh - 50vh);
+            }
+
+            .lined {
+                display: none;
+            }
+
+            .slide-content article {
+                width: 80%;
+            }
+
+            .image{
+                display: none;
+            }
+
+            .slide5 {
+                height: auto;
+            }
+
+            .slide5 article h1 {
+                font-size: 1.5rem;
+            }
+            .slide5 article p {
+                padding: 10px 0 0 0;
+                font-size: 1rem;
+                width: 80vw;
+            }
+
+            .shops {
+                flex-direction: column;
+                gap: 100px;
+                margin-top: 50px;
+            }
+
+            .shop {
+                max-height: 150px;
+            }
+
+            .shop img {
+                max-width: 210px;
+                max-height: 70px;
+            }
+
+            .shops .shop:last-child img {
+                max-width: 200px;
+                max-height: 60px;
+            }
+
+            .reveal {
+                transition: 1s ease-in-out;
+                opacity: 0;
+                position: relative;
+                transform: translateY(100px);
+            }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <h2>Lavina</h2>
+                <ul>
+                    <li class="nav-item"><a href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="active" href="/stores.html" >Stores</a></li>
+                    <li class="nav-item"><a href="#">Products</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li>
+                    <img class="slash" src="slash.png">
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper">
+            <div class="slide slide1">
+                <article class="reveal">
+                    <h1>Welcome to <span class="special">Lavina</span></h1>
+                    <p>The ultimate destination for high-quality lipsticks. Grab yours now on our physical stores, where you can find an extensive range of shades and formulas to suit your every mood and occasion.</p>
+                </article>
+
+                <h2 class="reveal">You can explore Lavina products at</h2>
+
+                <div class="component component1">
+                    <img class="head" src="head.svg" alt="">
+                    <img class="line" src="line.svg" alt="">
+                </div>
+            </div>
+
+            <div class="slide slide2">
+                <div class="lined"></div>
+                <div class="slide-content">
+                    <img class="bullet reveal" src="head.svg" alt="">
+
+                    <article class="reveal">
+                        <h3>MetroTown Mall</h3>
+                        <p>1234 Quezon Avenue, Quezon City, Philippines</p>
+                        <p>OPEN DAILY 8 AM - 5 PM</p>
+                    </article>
+
+                    <img class="image" src="metrotown.svg" alt="">
+                </div>
+                <div class="checker"></div>
+            </div>
+
+            <div class="slide slide3">
+                <div class="lined"></div>
+                <div class="slide-content">
+                    <img class="bullet reveal" src="head.svg" alt="">
+
+                    <article class="reveal">
+                        <h3>Star City</h3>
+                        <p>5678 Roxas Boulevard, Pasay City, Philippines</p>
+                        <p>OPEN DAILY 8 AM - 5 PM</p>
+                    </article>
+
+                    <img class="image" src="starcity.svg" alt="">
+                </div>
+            </div>
+
+            <div class="slide slide4">
+                <div class="lined"></div>
+                <div class="slide-content">
+                    <img class="bullet reveal" src="head.svg" alt="">
+
+                    <article class="reveal">
+                        <h3>Robinsons Galleria</h3>
+                        <p>7890 EDSA corner Ortigas Avenue, Mandaluyong City, Philippines</p>
+                        <p>OPEN DAILY 8 AM - 5 PM</p>
+                    </article>
+
+                    <img class="image" src="robinsons.svg" alt="">
+                </div>
+            </div>
+
+            <div class="slide slide5">
+                <div class="component component2">
+                    <img class="head" src="head.svg" alt="">
+                    <img class="line" src="line.svg" alt="">
+                </div>
+                <article class="reveal">
+                    <h1>Lavina products are also available online.</h1>
+                    <p>Don't miss out on the opportunity to save money while getting Lavina product you need – buy online today and enjoy coupons and discounts!</p>
+                </article>
+
+                <div class="shops">
+                    <div class="shop reveal" >
+                        <img src="lazada.svg" alt="">
+                        <article>
+                            <p>Lavina Official Store</p>
+                            <p>Fast delivery within 3 days</p>
+                            <button class="lazada">Order now!</button>
+                        </article>
+
+                    </div>
+
+                    <div class="shop reveal">
+                        <img src="shopee.svg" alt="">
+                        <article>
+                            <p>Lavina products</p>
+                            <p>Enjoy huge discounts</p>
+                            <button class="shopee">Order now!</button>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="curve"></div>
+                <div class="connect">
+                    <h3>Lavina</h1>
+                    <h3>Let's stay connected!</h3>
+                    <p>Enter your email address: </p>
+                    <input type="text" placeholder="Email"><br>
+                    <button>Subscribe</button>
+                    <p>By sending us your email, you agreed to receive emails when we release a new product.</p>
+                </div>
+
+                <article class="contacts">
+                    <h4>For orders, please contact:</h3>
+                    <p> +639123456789, Send us an email at example@gmail.com or visit our shop at example place.</p>
+                </article>
+
+                <div class="links">
+                    <h3>Follow us!</h3>
+                    <p style="font-size: .8rem; text-align: center;">Our social media where we <br> post our product sneak peeks.</p>
+                    <div class="socials">
+                        <div>
+                            <a href="https://www.facebook.com/francienmae.cabildo">
+                                <img src="/facebook.svg" alt="">
+                            </a>
+                            <p>Facebook</p>
+                        </div>
+                        <div>
+                            <img src="/instagram.svg" alt="">
+                            <p>Instagram</p>
+                        </div>
+                        <div>
+                            <img src="/twitter.svg" alt="">
+                            <p>Twitter</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ending">               
+                    <p style="font-size: 12px; text-align: center;">Terms of service | Privacy policy <br> Copyright @ Lavina 2023 | All rights reserved</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script type="module" src="animation.js"></script>
+    <script>
+        function toggle(){
+            alert("Comming soon!");
+        }
+
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector("nav ul");
+        const menu = document.querySelector('.menu');
+
+        var rect = document.querySelector('a.active').getBoundingClientRect();
+
+        var slash = document.querySelector('.slash');
+        slash.style.left = (rect.left - 55) + "px";
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle("active");
+
+            document.querySelector('body').style.overflow = "hidden";
+            slash.style.display = "block";
+            var sl = document.querySelector('a.active').getBoundingClientRect();
+            console.log(sl);
+            slash.style.top = (sl.y - 65) + "px";
+            slash.style.left = "23%";
+        });
+
+        $(document).on('scroll', function(){
+                var reveals = document.querySelectorAll('.reveal');
+
+                reveals.forEach((item) => {
+                    var windowVH = window.innerHeight;
+                    var itemTop = item.getBoundingClientRect().top;
+                    var viewPoint = 100;
+
+                    if(itemTop < windowVH - viewPoint){
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                })
+
+            }
+        );
+    </script>
+</body>
+</html>
