@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/b84a5fb576.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Lavina</title>
+
+    <style>
+        .slide {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .slide1 {
+            margin-top: 170px;
+            height: calc(100vh * 2.25);
+        }
+
+        .slide1 h1 {
+            font-size: 60px;
+            margin: 80px 0 0 70px;
+            opacity: 0;
+            transition: 1s ease-in-out;
+        }
+
+        .slide1 p {
+            font-size: 32px;
+            margin: 10px 0 0 70px;
+            opacity: 0;
+            transition: 1s ease-in-out;
+            transition-delay: 1s;
+        }
+
+        .swipe {
+            position: absolute;
+            top: -550px;
+            left: 340px;
+            z-index: -1;
+            opacity: 0;
+            transition: 2s ease-in-out;
+        }
+
+        .lipstick {
+            position: absolute;
+            right: -0px;
+            top: -450px;
+        }
+
+        .highlight {
+            color: white;
+        }
+
+        .swipe {
+            position: absolute;
+            top: -550px;
+            left: 340px;
+            z-index: -1;
+        }
+
+        .follow {
+            margin-top: 200px;
+            margin-bottom: 50px; 
+            display: flex; 
+            margin-left: 60px;
+        }
+
+        .follow img {
+            width: 30px;
+        }
+
+        .follow p {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .floater {
+            width: 100vw;
+            height: 200vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2.wrap {
+            font-size: 200px;
+            text-align: center;
+            line-height: 150px;
+            opacity: .1;
+            position: relative;
+            max-width: 100vw;
+        }
+
+        .wrap1 {
+            top: 80%;
+        }
+
+        .wrap2 {
+            top: 80%;
+        }
+
+        .wrap1:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 1);
+            border-radius: 50%;
+            z-index: -1;
+            display: list-item;
+            filter: blur(10px);
+        }
+
+        .floater h2:last-child {
+            font-size: 150px;
+            opacity: 1;
+        }
+
+        .slide2 {
+            background-image: url("/slide2.png");
+            background-repeat: no-repeat;
+            width: 100vw;
+        }
+
+        .slide2 article {
+            margin-left: 550px;
+            padding-top: 250px;
+            width: 500px;
+        }
+
+        .slide2 h1 {
+            font-size: 32px;
+        }
+
+        .slide2 p {
+            font-size: 18px;
+        }
+
+        .slide3 h1 {
+            margin-top: 150px;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .special {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .features {
+            margin-top: 50px;
+            display: flex;
+        }
+
+        .feature {
+            width: 250px;
+            height: 350px;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            transition: .5s ease-in;
+        }
+
+        .feature:hover {
+            box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature div {
+            width: 220px;
+        }
+
+        .feature div > p {
+            /* border: 1px solid red; */
+            font-size: 16px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature img {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background-image: url("curve.png");
+            background-repeat: no-repeat;
+            color: white;
+            padding: 0 70px;
+            letter-spacing: 1px;
+            height: 320px;
+        }
+
+        .ending {
+            margin-top: 20px;
+            position: relative;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ending p {
+            margin: 0;
+        }
+
+        .connect {
+            position: relative;
+            top: 70px;
+            width: 205px;
+        }
+
+        .connect h2 {
+            font-size: 35px;
+        }
+
+        .connect h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .connect p {
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .connect input {
+            width: 200px;
+            height: 40px;
+            position: relative;
+            cursor: text;
+            font-size: 14px;
+            line-height: 0;
+            padding: 0 8px;
+            height: 48px;
+            background-color: #fff;
+            border: 1px solid #d6d6e7;
+            color: rgb(35, 38, 59);
+            box-shadow: inset 0 1px 4px 0 rgb(119 122 175 / 30%);
+            overflow: hidden;
+            transition: all 100ms ease-in-out;
+            margin-top: 10px;
+        }
+
+        .connect p:last-child {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .connect button {
+            margin-top: 10px;
+            width: 200px;
+            height: 30px;
+            background-color: #A0A0A0;
+            border: none;
+        }
+
+        .contacts {
+            position: relative;
+            top: -50px;
+            right: -80%;
+            width: 250px;
+        }
+
+        .contacts p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .links {
+            position: relative;
+            top: -150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .links p {
+            margin: 0;
+        }
+
+        .socials {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+        }
+
+        .socials div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+        }
+
+        .socials div:hover img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .socials div p {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .socials img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+        }
+
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 1s ease-in-out;
+        }
+
+        .reveal.active {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .slide1 {
+                height: calc(100vh * 2);
+                margin-top: 20%;
+                padding: 50px;
+                padding: 0;
+            }
+
+            .slide1 h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+
+            .slide1 p {
+                font-size: 1.2rem;
+            }
+
+            .slide1 h1, .slide1 p {
+                max-width: 75%;
+                margin-left: 50px;
+            }
+
+            .slash {
+                /* display: none; */
+                width: 200px;
+            }
+
+            .swipe {
+                position: absolute;
+                left: 0;
+                width: 200px;
+            }
+
+            .lipstick {
+                display: none;
+            }
+
+            .follow {
+                margin-left: 50px;
+            }
+
+            .follow p {
+                margin: 0;
+            }
+
+            .floater {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            h2.wrap {
+                font-size: 5rem;
+                text-align: center;
+                line-height: 5rem;
+                opacity: .1;
+                position: relative;
+                left: 0;
+                max-width: 100vw;
+            }
+
+            .wrap1 {
+                top: 70%;
+            }
+
+            .wrap2 {
+                top: 70%;
+            }
+
+            .wrap1:after {
+                display: none;
+            }
+
+            .floater h2:last-child {
+                font-size: 4rem;
+                opacity: 1;
+            }
+
+            .slide2 {
+                display: flex;
+                justify-content: center;
+                /* align-items: center; */
+            }
+
+            .slide2 article {
+                margin: 70% 0 0 0;
+                padding: 0;
+                width: 60%;
+            }
+
+            .slide2 article h1 {
+                font-size: 20px;
+            }
+
+            .slide2 article p {
+                font-size: 16px;
+            }
+
+            .slide3 {
+                height: auto;
+            }
+
+            .slide3 h1 {
+                margin-top: 50px;
+                font-size: 28px;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+
+            .feature {
+                width: 60%;
+                height: 300px;
+                margin: auto;
+                margin-top: 50px;
+                pointer-events: none;
+                padding: 0;
+            }
+
+            .feature div {
+                width: 100%;
+            }
+
+            .feature div > p {
+                font-size: 14px;
+                min-width: 100%;
+            }
+
+            .feature div > h3 {
+                font-size: 16px;
+            }
+
+            .feature img {
+                width: 50px;
+                height: 50px;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 20px;
+            }
+
+            .curve {
+        position: absolute;
+        height: 100px;
+        width: 100%;
+        top: 0;
+        /* background-color: #ECE9DF; */
+    }
+
+    .curve::before {
+        content: '';
+        background-image: url("curves.png");
+        display: block;
+        position: absolute;
+        height: 100px;
+        width: 100vw;
+        top: -50%;
+        left: -1px;
+    }
+
+    footer {
+        background-image: none;
+        background-color: #292829;
+        position: relative;
+        height: auto;
+        padding: 0;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links, .contacts, .connect, .ending {
+        position: static;
+    }
+
+    .connect, .contacts, .links {
+        margin-top: 50px;
+    }
+
+    .connect h3:first-child {
+        font-size: 1.5rem;
+    }
+
+    .contacts, .links {
+        text-align: center;
+        /* margin-top: 25px; */
+    }
+
+    .ending {
+        position: static;
+        margin-left: 50%;
+    }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <h2>Lavina</h2>
+                <ul>
+                    <li class="nav-item"><a class="active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item"><a href="/stores.html" >Stores</a></li>
+                    <li class="nav-item"><a href="#">Products</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li>
+                    <img class="slash" src="slash.png">
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper">
+            <div class="slide slide1">
+                <h1>Unleash your confidence <br> with every <span class="highlight">swipe</span> of our lipstick</h1>
+                <p>Get ready to turn heads and make a statement <br> with our bold and vibrant lipstick shades.</p>
+
+                <div class="follow">
+                    <img src="/arrow.svg" alt="">
+                    <p>Explore the beauty in you.</p>
+                </div>
+
+                <div style="position: relative;">
+                    <img class="lipstick" src="/Lipstick.png" alt="lipstick">
+                    <img class="swipe" src="/swipe.png" alt="lipstick">
+                </div>
+
+                    <div class="floater">
+                        <h2 class="wrap wrap1">Discover Embrace</h2>
+                        <h2 class="wrap wrap2">The Beauty</h2>
+                    </div>
+            </div>
+
+            <div class="slide slide2">
+                <article class="reveal">
+                    <h1>Make your pout pop with our vibrant range of lipsticks.
+                    </h1>
+                    <p>Our vibrant range of lipsticks is perfect for those who want to make a statement with their makeup. With a wide variety of shades, from bold and bright to subtle and soft, our lipsticks are sure to make your pout pop.
+                    </p>
+                </article>
+            </div>
+
+            <div class="slide slide3">
+                <h1 class="reveal">Why you’ll love <span class="special">Lavina?<span></span></h1>
+                <div class="features ">
+                    <div class="feature reveal">
+                        <img src="time.svg
+                        " alt="">
+                        <div>
+                            <h3>Long-lasting formula that stays put for hours: </h3><br>
+                            <p>Our lipstick is designed to last all day, so you don't have to worry about constant touch-ups. Its long-lasting formula ensures that you can enjoy a bold and vibrant look without the need for frequent reapplication.</p>
+                        </div>
+                    </div>
+                    <div class="feature reveal">
+                        <img src="drop.svg
+                        " alt="">
+                        <div>
+                            <h3>Hydrating and nourishing ingredients that keep your lips soft and moisturized:</h3><br>
+                            <p>Our lipstick is infused with hydrating and nourishing ingredients that keep your lips soft and moisturized.</p>
+                        </div>
+                    </div>
+                    <div class="feature reveal">
+                        <img src="texture.svg
+                        " alt="">
+                        <div>
+                            <h3>Smooth and creamy texture that glides on easily:</h3><br>
+                            <p>Our lipstick has a smooth and creamy texture that glides on easily, making it effortless to apply.</p>
+                        </div>
+                    </div>
+                    <div class="feature reveal">
+                        <img src="color.svg
+                        " alt="">
+                        <div>
+                            <h3>Bold and vibrant shades that make your pout pop:</h3><br>
+                            <p>Our lipstick comes in a range of bold and vibrant shades that are perfect for making a statement. Whether you're looking for a bright and bold color or something more subtle, we have a shade that will make your pout pop.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="curve"></div>
+                <div class="connect">
+                    <h3>Lavina</h1>
+                    <h3>Let's stay connected!</h3>
+                    <p>Enter your email address: </p>
+                    <input type="text" placeholder="Email"><br>
+                    <button>Subscribe</button>
+                    <p>By sending us your email, you agreed to receive emails when we release a new product.</p>
+                </div>
+
+                <article class="contacts">
+                    <h4>For orders, please contact:</h3>
+                    <p> +639123456789, Send us an email at example@gmail.com or visit our shop at example place.</p>
+                </article>
+
+                <div class="links">
+                    <h3>Follow us!</h3>
+                    <p style="font-size: .8rem; text-align: center;">Our social media where we <br> post our product sneak peeks.</p>
+                    <div class="socials">
+                        <div>
+                            <a href="https://www.facebook.com/francienmae.cabildo">
+                                <img src="/facebook.svg" alt="">
+                            </a>
+                            <p>Facebook</p>
+                        </div>
+                        <div>
+                            <img src="/instagram.svg" alt="">
+                            <p>Instagram</p>
+                        </div>
+                        <div>
+                            <img src="/twitter.svg" alt="">
+                            <p>Twitter</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ending">               
+                    <p style="font-size: 12px; text-align: center;">Terms of service | Privacy policy <br> Copyright @ Lavina 2023 | All rights reserved</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        function toggle(){
+            alert("Comming soon!");
+        }
+
+        $('.slide1 h1').css("opacity", "1");
+        $('.slide1 p').css("opacity", "1");
+        $('.slide1 .swipe').css("opacity", "1");
+        $('.lipstick').css({"transform":"rotate(0deg)"});
+
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector("nav ul");
+        const menu = document.querySelector('.menu');
+
+        var rect = document.querySelector('a.active').getBoundingClientRect();
+
+        var highlight = document.querySelector('.highlight').getBoundingClientRect();
+        // console.log(highlight.x, highlight.right, highlight.bottom, highlight.left);
+
+        document.querySelector('.swipe').style.left = (highlight.x - 40) + "px";
+        document.querySelector('.swipe').style.top = (highlight.y - 790) + "px";
+
+        var slash = document.querySelector('.slash');
+        slash.style.left = (rect.left - 55) + "px";
+
+        hamburger.addEventListener("click", () => {
+
+            if(hamburger.classList.contains('active')){
+                hamburger.classList.remove('active');
+                navMenu.classList.remove("active");
+
+                document.querySelector('html').style.overflow = "visible";
+                slash.style.display = "none";
+                return;
+            }
+
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle("active");
+
+            document.querySelector('html').style.overflow = "hidden";
+            slash.style.display = "block";
+            var sl = document.querySelector('a.active').getBoundingClientRect();
+            console.log(sl);
+            slash.style.top = (sl.y - 65) + "px";
+            slash.style.left = "23%";
+        });
+
+        document.querySelectorAll('li a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove("active");
+        }));
+
+        var speed1 = .40;
+        var speed2 = 1.5;
+
+        let width = screen.width;
+        if(width <= 600){
+            document.querySelector('.swipe').style.left = (highlight.x - 45) + "px";
+            document.querySelector('.swipe').style.top = (highlight.y - 790) + "px";
+            speed1 = .40;
+            speed2 = 1.5;
+        }
+
+        $(document).on('scroll', function(){
+            $('.wrap1').css('top', 600 - speed1 * window.scrollY + "px");
+            $('.wrap2').css('top', 1300 - speed2 * window.scrollY + "px");
+        })
+
+        $(document).on('scroll', function(){
+                var reveals = document.querySelectorAll('.reveal');
+
+                reveals.forEach((item) => {
+                    var windowVH = window.innerHeight;
+                    var itemTop = item.getBoundingClientRect().top;
+                    var viewPoint = 100;
+
+                    if(itemTop < windowVH - viewPoint){
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                })
+
+            }
+        );
+
+    </script>
+</body>
+</html>
