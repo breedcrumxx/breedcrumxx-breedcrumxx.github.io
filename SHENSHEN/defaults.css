@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Libre+Baskerville:wght@400;700&family=Stardos+Stencil:wght@400;700&display=swap;700&family=Italianno&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Istok Web', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #BDBDBD; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #10131A;
+}
+
+/* headers and nav */
+
+header {
+    height: 60px;
+    width: 65%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    z-index: 3;
+    transition: 1s ease-in-out;
+}
+
+header h2 {
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 24px;
+    color: #BDBDBD;
+    margin: auto auto auto 50px;
+    line-height: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    transition: 1s ease-in-out;
+}
+
+nav.active {
+    transform: translateY(-100%);
+}
+
+.hamburger {
+    display: none;
+    /* border: 1px solid red; */
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all .3x ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: black;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 0 40px;
+}
+
+ul li a {
+    font-size: .8rem;
+    text-decoration: none;
+    color: #AFAFAF;
+}
+
+.right-nav {
+    width: 40px;
+    height: 200px;
+    background-color: #222939;
+    position: fixed;
+    top: 50%;
+    right: -10%;
+    z-index: 10;
+    border-radius: 50px;
+    transform: translateY(-50%);
+    transition: 1s ease-in-out;
+}
+
+.icons {
+    height: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    width: 60%;
+}
+
+.right-nav img {
+    filter: invert(100%);
+    width: 100%;
+}
+
+.right-nav.active {
+    right: 10px;
+}
+
+.reveal {
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+.reveal.active {
+    opacity: 1;
+}
+
+footer {
+    width: 100%;
+    min-height: 350px;
+    background-image: url("assets/curve-footer.svg");
+    background-repeat: no-repeat;
+    color: white;
+    padding: 0 0 0 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    scroll-snap-align: start;
+}
+
+.ending {
+    min-width: 100%;
+    background-color: #10131A;
+    color: white;
+}
+
+.ending p {
+    margin: 0;
+}
+
+.connect {
+    margin-top: 50px;
+    width: 205px;
+}
+
+.connect h2 {
+    font-size: 35px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.connect h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.connect p {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.connect input {
+    width: 200px;
+    height: 40px;
+    position: relative;
+    cursor: text;
+    font-size: 14px;
+    line-height: 0;
+    padding: 0 8px;
+    height: 48px;
+    background-color: #fff;
+    border: 1px solid #d6d6e7;
+    color: rgb(35, 38, 59);
+    box-shadow: inset 0 1px 4px 0 rgb(119 122 175 / 30%);
+    overflow: hidden;
+    transition: all 100ms ease-in-out;
+    margin-top: 10px;
+}
+
+.connect p:last-child {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.connect button {
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    background-color: #A0A0A0;
+    border: none;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.links p {
+    margin: 0;
+}
+
+.socials {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+.socials div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.socials div:hover img {
+    width: 50px;
+    height: 50px;
+}
+
+.socials div p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.socials img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.contacts {
+    width: 250px;
+    margin-top: 100px;
+}
+
+.contacts p {
+    font-size: 14px;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    header.active {
+        top: -60px;
+    }
+
+    body .right-nav {
+        width: 80vw;
+        height: 40px;
+        top: 110%;
+        right: 0;
+        left: 10%;
+    }
+
+    .icons {
+        width: 100%;
+        flex-direction: row;
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+
+    .icon {
+        max-width: 40px;
+    }
+    
+    .right-nav img {
+        max-width: 30px;
+        max-height: 30px;
+    }
+    
+    .right-nav.active {
+        top: 95%;
+    }
+        
+    footer {
+        min-height: auto;
+        max-height: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        background-image: url("assets/curve-footer-mobile.svg");
+        gap: 50px
+    }
+
+    .connect {
+        margin-top: 100px;
+    }
+
+    .links {
+        margin-top: 0;
+    }
+
+    .contacts {
+        margin-top: 0;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+}
